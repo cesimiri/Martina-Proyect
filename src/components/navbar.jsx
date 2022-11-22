@@ -8,16 +8,22 @@ import './navBar.css';
 const NavBar = () => {
   return (
     <Fragment>
-
-    <div className='navbar'>
-      <Link className='martina' to='/'><img className='martina' src={logo} alt='imagen' /></Link>
-
-      <Link className='menu' to='/garita'>GARITA</Link>
-
-      <Link className='menu' to='/villas'>VILLAS</Link>
-
-      <Link className='menu' to='/botonpanico'>REPORTERIA</Link>
-      </div>
+      <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+        <Link className='martina' to='/'><img className='martina' src={logo} alt='imagen' /></Link>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+            <Link className='nav-link' to='/garita'>GARITA</Link>
+            <Link className='nav-link' to='/villas'>VILLAS</Link>
+            <Link className='nav-link' to='/botonpanico'>REPORTERIA</Link>
+              
+            </div>
+          </div>
+        </div>
+      </nav>
 
 
       <Routes>
@@ -27,7 +33,7 @@ const NavBar = () => {
         <Route path='/botonpanico' element={<BotonPanico />} />
       </Routes>
 
-      </Fragment>
+    </Fragment>
 
 
   )

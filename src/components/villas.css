@@ -1,0 +1,17 @@
+.contenedor{
+    border-color: blue;
+    border-style: double; 
+    display:  flex ;
+}
+
+.contenedor1{
+    border-color: blue;
+    border-style: double; 
+    width: 65%;
+}
+
+.contenedor2{
+    border-color: blue;
+    border-style: double; 
+    width: 35%;
+}

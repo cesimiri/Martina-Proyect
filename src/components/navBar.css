@@ -4,8 +4,6 @@
     align-items: center;
     border-color: blue;
     border-style: double;
-  
-    width: 100%;
     
   }
   
@@ -13,6 +11,7 @@
     width: 30%;
     height: 20%;
   }
+ 
   
   .menu{
     color: black;
@@ -20,3 +19,6 @@
     
   }
   
+  .nav-link{
+    color: dodgerblue
+  }

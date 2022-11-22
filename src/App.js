@@ -1,4 +1,6 @@
 //npm install react-router-dom
+//npm install mui-datatables
+//npm install @mui/material @emotion/react @emotion/styled
 import React from 'react';
 import './App.css';
 
@@ -8,9 +10,7 @@ function App() {
   return (
     <div className='cuadro'>
       <NavBar/>
-      
     </div>
-    
   );
 }
 
