@@ -1,6 +1,8 @@
 //npm install react-router-dom
-//npm install mui-datatables
-//npm install @mui/material @emotion/react @emotion/styled
+//npm install axios
+//npm install @reduxjs/toolkit
+
+
 import React from 'react';
 import './App.css';
 
