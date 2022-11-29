@@ -48,23 +48,23 @@ const Villas = () => {
                     <h1>Nueva Villa</h1>
                     <form class="pt-3">
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Ciudad</label>
+                            <label htmlFor="exampleInputEmail1" class="form-label">Ciudad</label>
                             <input type="text" class="form-control rounded" id="exampleInputEmail1" />
                         </div>
                         <div class="mb-3">
-                            <label for="exampleInputPassword1" class="form-label">Urbanización</label>
+                            <label htmlFor="exampleInputPassword1" class="form-label">Urbanización</label>
                             <input type="text" class="form-control rounded" id="exampleInputPassword1" />
                         </div>
                         <div class="mb-3 ">
-                            <label for="exampleInputPassword1" class="form-label">Propietario</label>
+                            <label htmlFor="exampleInputPassword1" class="form-label">Propietario</label>
                             <input type="text" class="form-control" />
                         </div>
                         <div class="mb-3 ">
-                            <label for="exampleInputPassword1" class="form-label">Residente</label>
+                            <label htmlFor="exampleInputPassword1" class="form-label">Residente</label>
                             <input type="text" class="form-control rounded" />
                         </div>
                         <div class="mb-3 ">
-                            <label for="exampleInputPassword1" class="form-label">Manzana & villa</label>
+                            <label htmlFor="exampleInputPassword1" class="form-label">Manzana & villa</label>
                             <input type="text" class="form-control rounded" />
                         </div>
                         <button type="submit" class="btn btn-primary">Grabar</button>

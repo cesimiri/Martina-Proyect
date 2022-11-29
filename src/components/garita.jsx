@@ -1,23 +1,48 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from 'react-redux/'
+import { ObtenerGarita , IngresoGarita } from "../controllers/garita";
+import { setNuevoNumero } from "../reducers/MartinaReducers";
 import './garita.css';
+
 const Garita = () => {
+    const dispatch = useDispatch();
+    const martinaSelector = useSelector(state => state.martina)
+    const martinaNumero = martinaSelector.numeroGarita
+    // console.log ("DATA =>",martinaSelector.numeroGarita)
+
+    const handleChangeNumero = e =>{
+        dispatch(setNuevoNumero(e.target.value))
+    }
+
+    const enviar = (e)=>{
+        e.preventDefault()
+        const numero = {
+            nuevoNumero : martinaSelector.nuevoNumero 
+        }
+        dispatch(IngresoGarita(numero))
+        e.target.reset()
+    }
+
+    useEffect(() => {
+        dispatch(ObtenerGarita())
+    }, [dispatch])
     return (
         <>
-            
             <div className="garita">
                 <h1>Información de garita</h1>
                 <form className="formulario">
                     <label >Número Actual</label>
-                    <label className="actual">0999999999</label>
+                    <label className="actual">{martinaNumero}</label>
 
 
                 </form>
                 <h1>Agregar Nuevo Número</h1>
-                <form className="formulario">
+                <form className="formulario" onSubmit={enviar}>
                     <label className="texto">Ingrese Nuevo Número</label>
-                    <input className="actual" class="rounded" type='TEXT' placeholder='nuevo número' required></input>
+                    <input className="actual" maxLength='10' type='TEXT' placeholder='nuevo número' onChange={handleChangeNumero} required pattern="[0-9]+"></input>
+                    {/* <input className="actual" maxLength='10' type='TEXT' placeholder='solo letra' onChange={handleChangeNumero} required pattern="[a-zA-Z]+"></input> */}
                     <hr className="separador2" />
-                    <button>
+                    <button type="submit">
                         Guardar
                     </button>
                 </form>

@@ -1,6 +1,6 @@
 .contenedor{
-    border-color: blue;
-    border-style: double; 
+    /* border-color: blue;
+    border-style: double;  */
     display:  flex ;
 }
 
