@@ -9,14 +9,12 @@ export const ObtenerGarita = createAsyncThunk("garita/PostGarita", async () => {
     return respuesta.data
 })
 
-export const IngresoGarita = createAsyncThunk("numero/PostNumero", async (numeroGarita) =>{
+export const IngresoGarita = createAsyncThunk("numero/PostNumero", async (numeroGarita) => {
     const respuesta = await instanciaAxios.post("/garita.php", {
-       
-            metodo: "ingresarNuevoNumeroGarita",
-            ...numeroGarita,
-         
+        metodo: "ingresarNuevoNumeroGarita",
+        ...numeroGarita,
     })
-    console.log(respuesta.data)
+    // console.log(respuesta.data)
     return respuesta.data
 })
 

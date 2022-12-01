@@ -9,6 +9,7 @@ const Garita = () => {
     const martinaSelector = useSelector(state => state.martina)
     const martinaNumero = martinaSelector.numeroGarita
     // console.log ("DATA =>",martinaSelector.numeroGarita)
+    
 
     const handleChangeNumero = e =>{
         dispatch(setNuevoNumero(e.target.value))
@@ -22,6 +23,8 @@ const Garita = () => {
         dispatch(IngresoGarita(numero))
         e.target.reset()
     }
+
+
 
     useEffect(() => {
         dispatch(ObtenerGarita())
@@ -39,7 +42,7 @@ const Garita = () => {
                 <h1>Agregar Nuevo Número</h1>
                 <form className="formulario" onSubmit={enviar}>
                     <label className="texto">Ingrese Nuevo Número</label>
-                    <input className="actual" maxLength='10' type='TEXT' placeholder='nuevo número' onChange={handleChangeNumero} required pattern="[0-9]+"></input>
+                    <input className="actual" maxLength='10' minLength='10' type='TEXT' placeholder='nuevo número' onChange={handleChangeNumero} required pattern="[0-9]+"></input>
                     {/* <input className="actual" maxLength='10' type='TEXT' placeholder='solo letra' onChange={handleChangeNumero} required pattern="[a-zA-Z]+"></input> */}
                     <hr className="separador2" />
                     <button type="submit">
