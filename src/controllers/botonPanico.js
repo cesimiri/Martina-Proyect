@@ -6,7 +6,12 @@ const consultar = createAsyncThunk("datosCasa/PostDatosCasa", async (datosCasa) 
         metodo: "buscarMzV",
         query: datosCasa,
     })
-    //  console.log(respuesta)
-    return respuesta.data
+    //  console.log(respuesta.data.estado)
+     if (respuesta.data.estado === 1 ){
+        return respuesta.data
+    }else{
+        return []
+    }
+    
 })
 export default consultar;

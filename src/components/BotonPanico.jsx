@@ -8,6 +8,7 @@ const BotonPanico = () => {
     const martinaSelector = useSelector(state => state.martina)
     const martinaUbicaciones = martinaSelector.ubicaciones;
     // console.log("ubic", martinaUbicaciones)
+    
     const handleChange = e => {
         dispatch(consultar(e.target.value))
     }
@@ -38,15 +39,6 @@ const BotonPanico = () => {
 
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row">0996254630</th>
-                            <td>21/11/2022 14:17:19</td>
-                            <td>0996895014</td>
-                            <td>0996895014</td>
-                            <td>carlosmorles@hotmail.com</td>
-                            <td>carlosmorles@hotmail.com</td>
-                            <td>Mz.20 V.14E</td>
-                        </tr>
                         {martinaUbicaciones.map((u, i) => (
                             <tr key={i}>
                                 <th scope="row">{u.botpan_usuari}</th>

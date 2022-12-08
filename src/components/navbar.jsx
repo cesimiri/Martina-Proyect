@@ -11,15 +11,15 @@ const NavBar = () => {
   
   return (
     <Fragment>
-      <nav class="navbar navbar-expand-lg bg-light">
-        <div class="container-fluid">
+      <nav className="navbar navbar-expand-lg bg-light">
+        <div className="container-fluid">
         <Link className='martina' to='/'><img className='martina' src={logo} alt='imagen' /></Link>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-            <Link className='nav-link' to='/garita' >GARITA</Link>
+          <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div className="navbar-nav">
+            <Link className='nav-link' to='/' >GARITA</Link>
             <Link className='nav-link' to='/villas'>VILLAS</Link>
             <Link className='nav-link' to='/botonpanico'>REPORTERIA</Link>
               
@@ -30,8 +30,8 @@ const NavBar = () => {
 
 
       <Routes>
-        <Route path='/' />
-        <Route path='/garita' element={<Garita />} />
+        {/* <Route path='/' /> */}
+        <Route path='/' index element={<Garita />} />
         <Route path='/villas' element={<Villas />} />
         <Route path='/botonpanico' element={<BotonPanico />} />
       </Routes>
