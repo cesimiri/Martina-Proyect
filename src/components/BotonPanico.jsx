@@ -35,8 +35,6 @@ const BotonPanico = () => {
                         </tr>
 
 
-
-
                     </thead>
                     <tbody>
                         {martinaUbicaciones.map((u, i) => (

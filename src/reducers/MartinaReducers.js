@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { IngresoGarita, ObtenerGarita } from "../controllers/garita";
-
+import consultar from "../controllers/botonPanico";
 
 const initialState = {
     numeroGarita: '',
@@ -52,6 +52,7 @@ const MartinaSlice = createSlice({
     // }
 
     extraReducers: (builder) => {
+        
         builder.addCase(ObtenerGarita.pending, (state) => {
             state.isLoading = true
             console.log("COMENSE")
@@ -70,7 +71,13 @@ const MartinaSlice = createSlice({
         }).addCase(IngresoGarita.rejected, (state, action) => {
             state.isLoading = false
             alert("ERROR DE COMUNICACIÖN")
-        })
+        }).addCase(consultar.pending , (state)=>{
+            state.isLoading = true
+        }).addCase(consultar.fulfilled, (state, action) =>{
+            state.isLoading = false
+            // console.log("qui", action.payload.data.listadoUbicaciones)
+            state.ubicaciones = action.payload.data.listadoUbicaciones
+        } )
     }
 
 })

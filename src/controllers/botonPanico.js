@@ -7,6 +7,7 @@ const consultar = createAsyncThunk("datosCasa/PostDatosCasa", async (datosCasa) 
         query: datosCasa,
     })
     //  console.log(respuesta.data.estado)
+   
      if (respuesta.data.estado === 1 ){
         return respuesta.data
     }else{
