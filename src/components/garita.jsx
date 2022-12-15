@@ -10,7 +10,6 @@ const Garita = () => {
     const martinaNumero = martinaSelector.numeroGarita
     // console.log ("DATA =>",martinaSelector.numeroGarita)
     
-
     const handleChangeNumero = e =>{
         dispatch(setNuevoNumero(e.target.value))
     }
@@ -37,8 +36,6 @@ const Garita = () => {
                 <form className="formulario">
                     <label >Número Actual</label>
                     <label className="actual">{martinaNumero}</label>
-
-
                 </form>
                 <h1>Agregar Nuevo Número</h1>
                 <form className="formulario" onSubmit={enviar}>

@@ -6,14 +6,15 @@
 import React from 'react';
 import './App.css';
 
-import NavBar from './components/navbar';
-
+import Login from './components/login';
+// import NavBar from './components/navbar';
 function App() {
   return (
     <div className='cuadro'>
-      <NavBar/>
+      <Login/>
+      {/* <NavBar/> */}
     </div>
-  );
+  )
 }
 
 export default App;

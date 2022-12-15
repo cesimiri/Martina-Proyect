@@ -1,11 +1,18 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { IngresoGarita, ObtenerGarita } from "../controllers/garita";
-import consultar from "../controllers/botonPanico";
+import {consultarMV , consultarNum} from "../controllers/botonPanico";
 
 const initialState = {
     numeroGarita: '',
     nuevoNumero: '',
     ubicaciones: [],
+    datosNuevo: {
+        nombres : '',
+        apellidos : '',
+        cedula : '', 
+        contrasena: '',
+    },
+
 }
 
 const MartinaSlice = createSlice({
@@ -16,40 +23,23 @@ const MartinaSlice = createSlice({
             const algo = action.payload
             state.nuevoNumero = algo
         },
+        setNombres: (state, action) => {
+            const algo = action.payload
+            state.datosNuevo.nombres = algo
+        },
+        setApellidos: (state, action) =>{
+            const algo = action.payload
+            state.datosNuevo.apellidos = algo
+        },
+        setCedula: (state, action) =>{
+            const algo = action.payload
+            state.datosNuevo.cedula = algo
+        },
+        setContrasena: (state, action) =>{
+            const algo = action.payload
+            state.datosNuevo.contrasena = algo
+        }
     },
-    // extraReducers: {
-    //     [consultar.pending]: (state, action) => {
-    //         state.isLoading = true
-
-    //     },
-    //     [consultar.fulfilled]: (state, action) => {
-    //         state.isLoading = false
-    //         // console.log("qui", action.payload.data.listadoUbicaciones)
-    //         state.ubicaciones = action.payload.data.listadoUbicaciones
-    //     },
-
-
-    //     [ObtenerGarita.pending]: (state, action) => {
-    //         state.isLoading = true
-
-    //     },
-    //     [ObtenerGarita.fulfilled]: (state, action) => {
-    //         state.isLoading = false
-    //         // console.log("obtener", action.payload.data.num.num.garita_fono)
-    //         state.numeroGarita = action.payload.data.num.num.garita_fono
-    //     },
-
-    //     [IngresoGarita.fulfilled]: (state, action) => {
-    //         state.isLoading = false
-    //         console.log(action.payload)
-    //         state.numeroGarita = action.payload.data
-    //     },
-
-    //     [IngresoGarita.rejected]: (state) => {
-    //         state.isLoading = false
-    //         console.log("sss")
-    //     },
-    // }
 
     extraReducers: (builder) => {
         
@@ -71,19 +61,26 @@ const MartinaSlice = createSlice({
         }).addCase(IngresoGarita.rejected, (state, action) => {
             state.isLoading = false
             alert("ERROR DE COMUNICACIÖN")
-        }).addCase(consultar.pending , (state)=>{
+        }).addCase(consultarMV.pending , (state)=>{
             state.isLoading = true
-        }).addCase(consultar.fulfilled, (state, action) =>{
+        }).addCase(consultarMV.fulfilled, (state, action) =>{
             state.isLoading = false
             // console.log("qui", action.payload.data.listadoUbicaciones)
             state.ubicaciones = action.payload.data.listadoUbicaciones
-        } )
+        }).addCase(consultarNum.pending , (state)=>{
+            state.isLoading = true
+        }).addCase(consultarNum.fulfilled, (state, action) =>{
+            state.isLoading = false
+            // console.log("aqui", action.payload.data.listadoUbicaciones)
+            state.ubicaciones = action.payload.data.listadoUbicaciones
+        })
     }
 
 })
 
 export const {
-    setNuevoNumero,
+    setNuevoNumero, 
+    setNombres , setApellidos , setCedula , setContrasena , 
 }
     = MartinaSlice.actions;
 export default MartinaSlice.reducer;
