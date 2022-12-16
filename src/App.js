@@ -3,17 +3,20 @@
 //npm install @reduxjs/toolkit
 //npm i react-redux
 
-import React from 'react';
+import React, { Fragment } from 'react';
 import './App.css';
 
-import Login from './components/login';
+// import Login from './components/login';
 // import NavBar from './components/navbar';
+import MainRoutes from './routes/mainRoutes';
 function App() {
   return (
-    <div className='cuadro'>
-      <Login/>
+      <div className='cuadro'>
+      <MainRoutes/>
+      {/* <Login/> */}
       {/* <NavBar/> */}
     </div>
+
   )
 }
 

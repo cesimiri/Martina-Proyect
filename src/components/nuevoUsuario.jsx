@@ -30,7 +30,7 @@ const NuevoUsuario = () => {
             cedula : martinaSelector.datosNuevo.cedula , 
             contrasena : martinaSelector.datosNuevo ,
         }
-        // console.log(registroUsuario)
+        // console.log("desde el enviar" , registroUsuario)
         dispatch(nuevoUsuarioController(registroUsuario))
         e.target.reset()
     }
@@ -71,10 +71,10 @@ const NuevoUsuario = () => {
                 </div>
             </div>
 
-            <Routes>
+            {/* <Routes>
                 <Route path='/NavBar' index element={<NavBar />} />
                 <Route path='/nuevoUsuario' index element={<nuevoUsuario />} />
-            </Routes>
+            </Routes> */}
         </section>
     )
 

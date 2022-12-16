@@ -34,7 +34,7 @@ const NavBar = () => {
         <Route path='/garita' index element={<Garita />} />
         <Route path='/villas' element={<Villas />} />
         <Route path='/botonpanico' element={<BotonPanico />} />
-        <Route path='/nuevoUsuario' element={<nuevoUsuario />} />
+        {/* <Route path='/nuevoUsuario' element={<nuevoUsuario />} /> */}
         {/* <Route path='/' index element={<Login />} /> */}
       </Routes>
     

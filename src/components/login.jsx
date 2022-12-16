@@ -3,8 +3,15 @@ import React, { Fragment } from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import NavBar from './navbar';
 import NuevoUsuario from './nuevoUsuario';
+import { useDispatch } from 'react-redux';
+import {login} from '../reducers/Login'
 
 const Login = () => {
+const dispatch = useDispatch()
+
+
+const loginI =()=> dispatch(login())
+
   return (
     <Fragment>
       <section className="vh-100 gradient-custom">
@@ -28,7 +35,10 @@ const Login = () => {
                       <label className="form-label" htmlFor="typePasswordX">CONTRASEÑA</label>
                     </div>
 
-                    <Link className='btn btn-outline-light btn-lg px-5' type="submit" to='/NavBar'>Ingresar</Link>
+                    {/* <Link className='btn btn-outline-light btn-lg px-5' type="submit" to='/NavBar'>Ingresar</Link> */}
+                  
+                    <button onClick={loginI}>Ingresar</button>
+                  
                   </div>
 
                   <div>
@@ -46,7 +56,9 @@ const Login = () => {
 
         <Routes>
           <Route path='/NavBar' index element={<NavBar />} />
-          <Route path='/nuevoUsuario/*' index element={<NuevoUsuario />} />
+          <Route path='/nuevoUsuario' index element={<NuevoUsuario />} />
+          <Route path='/login' index element={<Login />} />
+
         </Routes>
       </section>
     </Fragment>
