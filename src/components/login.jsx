@@ -3,14 +3,32 @@ import React, { Fragment } from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import NavBar from './navbar';
 import NuevoUsuario from './nuevoUsuario';
-import { useDispatch } from 'react-redux';
-import {login} from '../reducers/Login'
+import { useSelector , useDispatch } from 'react-redux';
+import LoginController from '../controllers/login';
+import { setVariable1, setContrasena } from '../reducers/Login'
 
 const Login = () => {
-const dispatch = useDispatch()
+  const dispatch = useDispatch()
+  const loginSelector = useSelector(state =>state.login);
 
+  const handleChangeVariable1 = (e) => {
+    dispatch(setVariable1(e.target.value))
+  }
+  const handleChangeContrasena = (e) => {
+    dispatch(setContrasena(e.target.value))
+  }
 
-const loginI =()=> dispatch(login())
+  const ingresar = (e) => {
+    e.preventDefault()
+    const ingresar = {
+      variable1 : loginSelector.datosLogin.variable1  ,
+      contrasena : loginSelector.datosLogin.contrasena ,
+    }
+    dispatch(LoginController(ingresar));
+    // console.log("desde el ingresar" , ingresar)
+
+   }
+  // const loginI = () => dispatch(login())
 
   return (
     <Fragment>
@@ -26,19 +44,19 @@ const loginI =()=> dispatch(login())
                     <p className="text-white-50 mb-5">Ingrese su usuario y contraseña!</p>
 
                     <div className="form-outline form-white mb-4">
-                      <input type="email" id="typeEmailX" className="form-control form-control-lg" />
-                      <label className="form-label" htmlFor="typeEmailX">CEDULA</label>
+                      <input type="text" className="form-control form-control-lg" onChange={handleChangeVariable1} minLength='10' maxLength= '10' required />
+                      <label className="form-label" >CEDULA</label>
                     </div>
 
                     <div className="form-outline form-white mb-4">
-                      <input type="password" id="typePasswordX" className="form-control form-control-lg" />
+                      <input type="password" id="typePasswordX" className="form-control form-control-lg" onChange={handleChangeContrasena} required />
                       <label className="form-label" htmlFor="typePasswordX">CONTRASEÑA</label>
                     </div>
 
                     {/* <Link className='btn btn-outline-light btn-lg px-5' type="submit" to='/NavBar'>Ingresar</Link> */}
-                  
-                    <button onClick={loginI}>Ingresar</button>
-                  
+
+                    <button onClick={ingresar}>Ingresar</button>
+
                   </div>
 
                   <div>
