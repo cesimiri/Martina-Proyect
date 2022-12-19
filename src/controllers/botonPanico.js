@@ -6,14 +6,12 @@ export const consultarMV = createAsyncThunk("datosCasa/PostDatosCasa", async (da
         metodo: "buscarMzV",
         query: datosCasa,
     })
-    //  console.log(respuesta.data.estado)
-   
-     if (respuesta.data.estado === 1 ){
-        return respuesta.data
-    }else{
-        return []
-    }
-    
+    // console.log("controlador" , respuesta.data)
+
+
+    return respuesta.data   
+
+
 })
 
 export const consultarNum = createAsyncThunk("botonPanico/consultarNum", async (datosCasa) => {
@@ -22,11 +20,7 @@ export const consultarNum = createAsyncThunk("botonPanico/consultarNum", async (
         metodo: "buscarTelefono",
         query: datosCasa,
     })
-     
-     if (respuesta.data.estado === 1 ){
-        return respuesta.data
-    }else{
-        return []
-    }
-    
+    console.log(respuesta)
+    return respuesta.data
+
 })

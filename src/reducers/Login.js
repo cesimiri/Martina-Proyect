@@ -8,7 +8,7 @@ const initialState = {
         variable1 : '',
         contrasena : '',
     }
-    
+
 }
 
 const LoginSlice = createSlice({
@@ -26,23 +26,22 @@ const LoginSlice = createSlice({
         login: state => {
             state.isLogin = true
         }
-    }, 
+    },
     extraReducers : (builder) =>{
         builder.addCase(LoginController.pending, (state) => {
             state.isLoading = true
         }).addCase(LoginController.fulfilled, (state, action) =>{
             state.isLoading = false
-            
+
             const estado = action.payload.estado
             if (estado === 1) {
-                state.isLogin = true 
-                console.log("si entra")
+                state.isLogin = true
             }else{
-                alert("usuario o contraseña incorrectos")
+                alert("USUARIO O CONTRASEÑA INCORRECTA!")
             }
             // console.log(action.payload.estado)
-            console.log(estado)
-        
+            // console.log(estado)
+
         })
     }
 })

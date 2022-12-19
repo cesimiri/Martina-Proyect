@@ -65,14 +65,24 @@ const MartinaSlice = createSlice({
             state.isLoading = true
         }).addCase(consultarMV.fulfilled, (state, action) =>{
             state.isLoading = false
-            // console.log("qui", action.payload.data.listadoUbicaciones)
-            state.ubicaciones = action.payload.data.listadoUbicaciones
+            console.log("martina", action.payload)
+            const estado = action.payload.estado
+            if (estado === 1) {
+                state.ubicaciones = action.payload.data.listadoUbicaciones
+            }else{
+                alert("NO EXISTE!")
+            }
         }).addCase(consultarNum.pending , (state)=>{
             state.isLoading = true
         }).addCase(consultarNum.fulfilled, (state, action) =>{
             state.isLoading = false
             // console.log("aqui", action.payload.data.listadoUbicaciones)
-            state.ubicaciones = action.payload.data.listadoUbicaciones
+            const estado = action.payload.estado
+            if (estado === 1) {
+                state.ubicaciones = action.payload.data.listadoUbicaciones
+            }else{
+                alert("NO EXISTE!") ;
+            }
         })
     }
 
