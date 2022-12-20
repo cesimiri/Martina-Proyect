@@ -1,5 +1,5 @@
 import Login from "../components/login"
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route} from "react-router-dom";
 import NavBar from "../components/navbar";
 import React, { Fragment } from "react";
 import NuevoUsuario from "../components/nuevoUsuario";
@@ -24,7 +24,7 @@ const MainRoutes = () => {
         )
       }
 
-
+      
 
     </Routes>
   )

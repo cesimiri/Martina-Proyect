@@ -6,15 +6,9 @@ const nuevoUsuarioController = createAsyncThunk("nuevoUsuario/PostNuevoUsuarioCo
         metodo: "ingresoNU",
         query: datosNuevoUsuario,
     })
-    //   console.log(respuesta)
+      console.log(respuesta)
     // console.log("desde el controlador" , datosNuevoUsuario)
-
-     if (respuesta.data.estado === 1 ){
-        return respuesta.data
-    }else{
-        // póner
-    }
-    
+        return respuesta.data  
 })
 
 export default nuevoUsuarioController 

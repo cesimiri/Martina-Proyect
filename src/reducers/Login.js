@@ -25,7 +25,8 @@ const LoginSlice = createSlice({
         },
         login: state => {
             state.isLogin = true
-        }
+        }, 
+
     },
     extraReducers : (builder) =>{
         builder.addCase(LoginController.pending, (state) => {
