@@ -7,7 +7,7 @@ const BotonPanico = () => {
     const dispatch = useDispatch();
     const martinaSelector = useSelector(state => state.martina)
     const martinaUbicaciones = martinaSelector.ubicaciones;
-    console.log("ubic", martinaUbicaciones)
+    // console.log("ubic", martinaUbicaciones)
     
     const handleChange = e => {
         dispatch(consultarMV(e.target.value))

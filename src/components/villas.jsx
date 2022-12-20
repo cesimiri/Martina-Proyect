@@ -2,11 +2,13 @@ import React from "react";
 import './villas.css'
 import { setCiudad, setUrbanizacion, setPropietario, setResidente, setMzv } from "../reducers/MartinaReducers";
 import { useSelector, useDispatch } from "react-redux";
-import { ingresarVillaController } from "../controllers/villas";
+import { ingresarVillaController , buscarVillaController } from "../controllers/villas";
 
 const Villas = () => {
     const dispatch = useDispatch();
     const martinaSelector = useSelector(state => state.martina);
+    const martinaUbicaciones = martinaSelector.ubicaciones;
+
     const handleChangeCiudad = (e) => {
         dispatch(setCiudad(e.target.value))
     }
@@ -21,6 +23,10 @@ const Villas = () => {
     }
     const handleChangeMzV = (e) => {
         dispatch(setMzv(e.target.value))
+    }
+
+    const handleChangeBusqueda = e => {
+        dispatch(buscarVillaController(e.target.value))
     }
 
     const enviar = (e) => {
@@ -41,7 +47,7 @@ const Villas = () => {
             <div className="contenedor">
 
                 <div className="contenedor1">
-                    <input class="mt-3 rounded" type='TEXT' placeholder='BUSCAR MZ & V'  ></input>
+                    <input class="mt-3 rounded" type='TEXT' placeholder='BUSCAR MZ & V' onChange={handleChangeBusqueda} ></input>
                     <table class="table mt-5">
                         <thead>
                             <tr>
@@ -53,27 +59,15 @@ const Villas = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th scope="row">Guayaquil</th>
-                                <td>Martina</td>
-                                <td>Otto</td>
-                                <td>Carlos</td>
-                                <td>14</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Guayaquil</th>
-                                <td>Martina</td>
-                                <td>Otto</td>
-                                <td>Carlos</td>
-                                <td>14</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Guayaquil</th>
-                                <td>Martina</td>
-                                <td>Otto</td>
-                                <td>Carlos</td>
-                                <td>14</td>
-                            </tr>
+                            {martinaUbicaciones.map((u , i ) =>(
+                                <tr key={i}>
+                                    <th scope="row">{u.martmv_ciudad}</th>
+                                    <td>{u.martmv_urbani}</td>
+                                    <td>{u.martmv_propie}</td>
+                                    <td>{u.martmv_reside}</td>
+                                    <td>{u.martmv_manvil}</td>
+                                </tr>
+                            )) }
                         </tbody>
                     </table>
                 </div>

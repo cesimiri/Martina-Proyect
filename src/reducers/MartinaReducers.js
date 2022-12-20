@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { IngresoGarita, ObtenerGarita } from "../controllers/garita";
 import { consultarMV, consultarNum } from "../controllers/botonPanico";
-import { ingresarVillaController } from "../controllers/villas";
+import { ingresarVillaController , buscarVillaController } from "../controllers/villas";
 const initialState = {
     numeroGarita: '',
     nuevoNumero: '',
@@ -120,6 +120,18 @@ const MartinaSlice = createSlice({
             const estado = action.payload.estado
             if (estado === 1) {
                 alert ("DATOS INGRESADOS")
+            } else {
+                alert ("ERROR!");
+            }
+        }).addCase(buscarVillaController.pending, (state) => {
+            state.isLoading = true
+        }).addCase(buscarVillaController.fulfilled, (state, action) => {
+            state.isLoading = false
+            // console.log("aqui", action.payload.data.listadoUbicaciones)
+            const estado = action.payload.estado
+            if (estado === 1) {
+                state.ubicaciones = action.payload.data.listadoUbicaciones
+                // console.log(action.payload)
             } else {
                 alert("NO EXISTE!");
             }

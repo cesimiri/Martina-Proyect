@@ -17,6 +17,7 @@ export const buscarVillaController = createAsyncThunk("buscarVilla/buscarVillaCo
         metodo: "buscarMzV" ,
         query : datosVilla ,
     })
-
+    // console.log("controlador" , datosVilla)
+    // console.log("controlador" , respuesta.data)
     return respuesta.data
 })
