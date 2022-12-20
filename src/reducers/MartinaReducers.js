@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { IngresoGarita, ObtenerGarita } from "../controllers/garita";
 import { consultarMV, consultarNum } from "../controllers/botonPanico";
 import { ingresarVillaController , buscarVillaController } from "../controllers/villas";
+import nuevoUsuarioController from "../controllers/nuevoUsuario";
 const initialState = {
     numeroGarita: '',
     nuevoNumero: '',
@@ -120,8 +121,10 @@ const MartinaSlice = createSlice({
             const estado = action.payload.estado
             if (estado === 1) {
                 alert ("DATOS INGRESADOS")
-            } else {
-                alert ("ERROR!");
+            } else if (estado === 5) {
+                alert ("MZ Y VIlla YA INGRESADAS!");
+            } else{
+                alert ("ERROR !")
             }
         }).addCase(buscarVillaController.pending, (state) => {
             state.isLoading = true
@@ -134,6 +137,20 @@ const MartinaSlice = createSlice({
                 // console.log(action.payload)
             } else {
                 alert("NO EXISTE!");
+            }
+        }).addCase(nuevoUsuarioController.pending, (state) => {
+            state.isLoading = true
+        }).addCase(nuevoUsuarioController.fulfilled, (state, action) => {
+            state.isLoading = false
+            // console.log("aqui", action.payload.data.listadoUbicaciones)
+            const estado = action.payload.estado
+            if (estado === 1) {
+                alert ("NUEVO USUARIO INGRESADO")
+                // console.log(action.payload)
+            }  else if (estado === 5) {
+                alert ("EXISTE ESE USUARIO!");
+            } else{
+                alert ("ERROR !")
             }
         })
     }
