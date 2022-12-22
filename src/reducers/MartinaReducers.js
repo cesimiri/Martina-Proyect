@@ -20,13 +20,40 @@ const initialState = {
         residente: '',
         mzv: '',
     },
-
+    datosVisita: {
+        urbanizacion: '', 
+        destino: '',
+        autorizado: '',
+        nombreVisita: '',
+        cedula: '',
+    }
 }
 
 const MartinaSlice = createSlice({
     name: "martina",
     initialState: initialState,
     reducers: {
+        setVisitaUrbanizacion: (state, action) =>{
+            const algo = action.payload
+            state.datosVisita.urbanizacion = algo
+        },
+        setVisitaDestino: (state, action) =>{
+            const algo = action.payload
+            state.datosVisita.destino = algo
+        },
+        setVisitaAutorizacion: (state, action) =>{
+            const algo = action.payload
+            state.datosVisita.autorizado = algo
+        },
+        setVisitaNombre: (state, action) =>{
+            const algo = action.payload
+            state.datosVisita.nombreVisita = algo
+        },
+        setVisitaCedula: (state, action) =>{
+            const algo = action.payload
+            state.datosVisita.cedula = algo
+        },
+
         setNuevoNumero: (state, action) => {
             const algo = action.payload
             state.nuevoNumero = algo
@@ -160,7 +187,8 @@ const MartinaSlice = createSlice({
 export const {
     setNuevoNumero,
     setNombres, setApellidos, setCedula, setContrasena,
-    setCiudad , setUrbanizacion , setPropietario , setResidente , setMzv 
+    setCiudad , setUrbanizacion , setPropietario , setResidente , setMzv , 
+    setVisitaUrbanizacion , setVisitaDestino , setVisitaAutorizacion ,setVisitaNombre , setVisitaCedula ,
 }
     = MartinaSlice.actions;
 export default MartinaSlice.reducer;

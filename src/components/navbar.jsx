@@ -5,6 +5,7 @@ import Garita from '../components/garita';
 import Villas from '../components/villas';
 import BotonPanico from '../components/BotonPanico';
 import './navBar.css';
+import Visitas from "./visitas";
 
 
 const NavBar = () => {
@@ -23,6 +24,7 @@ const NavBar = () => {
               <Link className='nav-link' to='/garita' >GARITA</Link>
               <Link className='nav-link' to='/villas'>VILLAS</Link>
               <Link className='nav-link' to='/botonpanico'>REPORTERIA</Link>
+              <Link className='nav-link' to='/visitas'>VISITAS</Link>
             </div>
           </div>
 
@@ -35,6 +37,7 @@ const NavBar = () => {
         <Route path='/garita' index element={<Garita />} />
         <Route path='/villas' element={<Villas />} />
         <Route path='/botonpanico' element={<BotonPanico />} />
+        <Route path="/visitas" element={<Visitas/>} />
       </Routes>
     
     </Fragment>

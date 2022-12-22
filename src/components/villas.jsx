@@ -77,7 +77,7 @@ const Villas = () => {
                     <form class="pt-3">
                         <div class="mb-3">
                             <label class="form-label">CIUDAD</label>
-                            <input type="text" class="form-control rounded" onChange={handleChangeCiudad} pattern="[a-zA-Z]+" required />
+                            <input type="text" class="form-control rounded" onChange={handleChangeCiudad}  required />
                         </div>
                         <div class="mb-3">
                             <label class="form-label">URBANIZACIÓN </label>
@@ -85,11 +85,11 @@ const Villas = () => {
                         </div>
                         <div class="mb-3 ">
                             <label class="form-label">PROPIETARIO</label>
-                            <input type="text" class="form-control" onChange={handleChangePropi} pattern="[a-zA-Z]+" required />
+                            <input type="text" class="form-control" onChange={handleChangePropi}  required />
                         </div>
                         <div class="mb-3 ">
                             <label class="form-label">RESIDENTE</label>
-                            <input type="text" class="form-control rounded" onChange={handleChangeResidente} pattern="[a-zA-Z]+" required />
+                            <input type="text" class="form-control rounded" onChange={handleChangeResidente}  required />
                         </div>
                         <div class="mb-3 ">
                             <label class="form-label">MANZANA & VILLA</label>
