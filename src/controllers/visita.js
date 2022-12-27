@@ -8,7 +8,7 @@ export const visitaController = createAsyncThunk("ingresoVilla/ingresarVillaCont
         query : datosVisita ,
     })
     // console.log("controlador" , datosVilla)
-    // console.log("controlador" , respuesta)
+    // console.log("controlador" , respuesta.data)
     return respuesta.data
 })
 
