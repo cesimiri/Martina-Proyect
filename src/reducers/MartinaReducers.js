@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import LoginController from "../controllers/login";
 import { IngresoGarita, ObtenerGarita } from "../controllers/garita";
 import { consultarMV, consultarNum } from "../controllers/botonPanico";
 import { ingresarVillaController , buscarVillaController } from "../controllers/villas";
@@ -104,7 +105,6 @@ const MartinaSlice = createSlice({
         }).addCase(ObtenerGarita.fulfilled, (state, action) => {
             state.isLoading = false
             console.log(action)
-            // en produccion la ruta no apunta al archivo, tiene la ruta para produccion
             state.numeroGarita = action.payload.data.num.num.garita_fono
         }).addCase(ObtenerGarita.rejected, (state, action) => {
             state.isLoading = false
@@ -179,11 +179,22 @@ const MartinaSlice = createSlice({
             } else{
                 alert ("ERROR !")
             }
+        }).addCase(LoginController.pending, (state) => {
+            state.isLoading = true
+        }).addCase(LoginController.fulfilled, (state, action) => {
+            state.isLoading = false
+            // console.log("aqui", action.payload.data.listadoUbicaciones)
+            const estado = action.payload.estado
+            if (estado === 1) {
+                alert ("USUARIO LOGUEADO")
+                // console.log(action.payload)
+            }   else{
+                alert ("USUARIO O CONTRASEÑA INCORRECTO !")
+            }
         })
     }
 
 })
-//ingresarVillaController 
 export const {
     setNuevoNumero,
     setNombres, setApellidos, setCedula, setContrasena,

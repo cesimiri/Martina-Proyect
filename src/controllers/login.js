@@ -6,12 +6,11 @@ const LoginController = createAsyncThunk("login/PostLoginController", async (dat
         metodo: "ingresoLogin",
         query: datosLogin,
     })
-    //   console.log(respuesta.data)
+      console.log(respuesta.data)
     // console.log("desde el controlador" , datosLogin)
     
-        return respuesta.data
-    
-    
+    return respuesta.data
+
 })
 
 export default LoginController 
